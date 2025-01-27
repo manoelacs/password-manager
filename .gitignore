@@ -174,3 +174,4 @@ cython_debug/
 .pypirc
 .env.dev
 .idea
+node_modules
