@@ -6,6 +6,23 @@ from rest_framework.test import APITestCase
 from rest_framework.authtoken.models import Token
 
 
+class RegisterUserTestCase(APITestCase):
+
+    def test_register_user(self):
+        url = reverse("passwords:register")
+        request = self.client.post(
+            url,
+            {
+                "username": "testuser3",
+                "password": "password123",
+            },
+        )
+        self.assertEqual(request.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(
+            request.data["message"], "User registered successfully"
+        )
+
+
 class PasswordEntryTestCase(APITestCase):
     def setUp(self):
         # Create a test user
@@ -16,10 +33,9 @@ class PasswordEntryTestCase(APITestCase):
         self.user2 = User.objects.create_user(
             username="testuser2", password="password123"
         )
-        self.url_token = reverse(
-            "token_obtain_pair"
-        )
-        request_token = self.client.post(self.url_token,
+        self.url_token = reverse("token_obtain_pair")
+        request_token = self.client.post(
+            self.url_token,
             {
                 "username": "testuser",
                 "password": "password123",
@@ -55,7 +71,8 @@ class PasswordEntryTestCase(APITestCase):
 
     def test_should_not_show_list_password_entries_for_other_user(self):
         url = reverse("passwords:passwords")
-        request_token = self.client.post(self.url_token,
+        request_token = self.client.post(
+            self.url_token,
             {
                 "username": "testuser2",
                 "password": "password123",
