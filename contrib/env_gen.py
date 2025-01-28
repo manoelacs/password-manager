@@ -28,6 +28,7 @@ POSTGRES_PASSWORD=postgres
 HOST=db
 PORT=5432
 READ_DATABASE=postgres
+DEVELOPMENT_MODE=True
 
 #DEFAULT_FROM_EMAIL=
 #EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
