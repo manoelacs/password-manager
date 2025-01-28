@@ -6,4 +6,4 @@ djangorestframework_simplejwt==5.4.0
 gunicorn==23.0.0
 django-cors-headers==4.6.0
 drf_yasg==1.21.8
-j_database_url==2.3.0
+dj_database_url==2.3.0-
