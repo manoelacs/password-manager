@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "corsheaders",
     "passwords",
+    "drf_yasg",
 ]
 
 CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
@@ -80,6 +81,16 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+}
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'api_key': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization'
+        }
+    },
+    'REFETCH_SCHEMA_WITH_AUTH': True,
 }
 
 WSGI_APPLICATION = "password_manager.wsgi.application"
