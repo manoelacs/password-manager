@@ -85,7 +85,9 @@ class PasswordEntryView(APIView):
             )
         else:
             passwords = PasswordEntry.objects.filter(user=request.user)
-        paginator = Paginator(passwords, 5)  # Show 5 items per page
+        paginator = Paginator(
+            passwords.order_by("id"), 5
+        )  # Show 5 items per page
         password_list = paginator.get_page(page_number)
         passwords_serializer = PasswordEntrySerializer(
             password_list, many=True
