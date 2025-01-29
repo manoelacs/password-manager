@@ -69,6 +69,21 @@ class PasswordEntryTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertGreaterEqual(len(response.data), 1)
 
+    def test_search_password_entry_by_name(self):
+        self.password = PasswordEntry.objects.create(
+            user=self.user,
+            name="google",
+            icon="https://example.com/icon.png",
+            notes="Sample notes",
+            url="https://example.com",
+            username="sampleuser",
+            password="samplepassword",
+        )
+        url = reverse("passwords:passwords")
+        response = self.client.get(url, query_params={"search": "google"})
+        self.assertEqual(response.data[0]["name"], "google")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
     def test_should_not_show_list_password_entries_for_other_user(self):
         url = reverse("passwords:passwords")
         request_token = self.client.post(
