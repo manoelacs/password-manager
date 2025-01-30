@@ -1,18 +1,18 @@
 # Password Manager
-Development tools
+Development tools:
 
 * Django
 * Django rest Framework
 
-## How to run locally.
+## How to run locally:
 
 1. Clone the repository.
-2. Enter in the folder
-3. Create a enviroment with python 3.12.
-4. Active the enviroment.
+2. Enter in the folder.
+3. Create an enviroment with Python 3.12.
+4. Activate the enviroment.
 5. Install the dependencies.
-6. Execute the env_gen 
-7. Run the migrate
+6. Execute the env_gen.
+7. Run the migrate.
 8. Run the project.
 
 
@@ -29,13 +29,12 @@ python manage.py runserver
 
 ```
 
-## Endpoints of api
-
-Endpoint for doc api.
+### Endpoint to access api's docs:
 http://localhost:8000/redoc/
 
-### Endpont to create a login.
+### Endpoint to create a login:
 Method post localhost:8000/api/v1/register/
+
 Body
 ```
 {
@@ -44,7 +43,7 @@ Body
     "password": "teste"
 }
 ```
-### Endpoint to generate a token login.
+### Endpoint to generate a login token:
 Method post localhost:8000/api/v1/api/token
 
 Body
@@ -54,7 +53,7 @@ Body
     "password": "teste"
 }
 ```
-### Endpoint to create a password entry
+### Endpoint to create a password entry:
 Method post localhost:8000/api/v1/passwords/
 Body
 {
@@ -67,10 +66,10 @@ Body
     "user": 1
 }
 
-### To access these endpoints you need to send a token authorization "Bearer token"
-## Endpoint to get all passwords 
-Obs: In this method you can use the query string for search a entry password e.g passwords/?search=<name>.
-This method has pagination, each page has five entries, to see other entries, use passwords/?page=2
+qTo access these endpoints you need to send a token authorization "Bearer token".
+### Endpoint to get all passwords:
+Obs: In this method you can use the query string to search for an password entry e.g passwords/?search=<name>.
+This method has pagination. Each page has five entries: to see other entries use passwords/?page=2
 Method get localhost:8000/api/v1/passwords/
 
 Response:
@@ -90,7 +89,7 @@ Response:
 ]
 
 ```
-### Endpoint to get a detail about a password.
+### Endpoint to get a detail about a password:
 Method get localhost:8000/api/v1/password/\<int\>
 
 Response
@@ -107,7 +106,7 @@ Response
 }
 ```
 
-### Endpoint to update a password.
+### Endpoint to update a password:
 Method put localhost:8000/api/v1/password/\<int\>
 
 Body
@@ -122,12 +121,12 @@ Body
 }
 ```
 
-### Endpoint to delete a password.
+### Endpoint to delete a password:
 Method delete localhost:8000/api/v1/password/\<int\>
 
-## Execute tests
+## How to execute tests:
 #### To see all the behaviors of this api, look at the test file in app passwords folder.
-1. To test the api
+1. To test the api, use:
 
 ```
 python manage.py test
