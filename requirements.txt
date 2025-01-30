@@ -7,3 +7,4 @@ gunicorn==23.0.0
 django-cors-headers==4.6.0
 drf_yasg==1.21.8
 dj_database_url==2.3.0
+django_filter==24.3
