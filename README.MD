@@ -1,8 +1,9 @@
 # Password Manager
+
 Development tools:
 
-* Django
-* Django rest Framework
+- Django
+- Django rest Framework
 
 ## How to run locally:
 
@@ -14,8 +15,6 @@ Development tools:
 6. Execute the env_gen.
 7. Run the migrate.
 8. Run the project.
-
-
 
 ```
 git clone git@github.com:ffabiorj/password-manager.git
@@ -30,12 +29,15 @@ python manage.py runserver
 ```
 
 ### Endpoint to access api's docs:
+
 http://localhost:8000/redoc/
 
 ### Endpoint to create a login:
+
 Method post localhost:8000/api/v1/register/
 
 Body
+
 ```
 {
     "username": "teste",
@@ -43,19 +45,27 @@ Body
     "password": "teste"
 }
 ```
+
 ### Endpoint to generate a login token:
+
 Method post localhost:8000/api/v1/api/token
 
 Body
+
 ```
 {
     "username": "teste",
     "password": "teste"
 }
 ```
+
 ### Endpoint to create a password entry:
+
 Method post localhost:8000/api/v1/passwords/
+
 Body
+
+```
 {
     "name": "test8",
     "icon": "https://example.com/new-icon.png",
@@ -65,9 +75,12 @@ Body
     "password": "newpassword",
     "user": 1
 }
+```
 
 qTo access these endpoints you need to send a token authorization "Bearer token".
+
 ### Endpoint to get all passwords:
+
 Obs: In this method you can use the query string to search for an password entry e.g passwords/?search=<name>.
 This method has pagination. Each page has five entries: to see other entries use passwords/?page=2
 Method get localhost:8000/api/v1/passwords/
@@ -89,10 +102,13 @@ Response:
 ]
 
 ```
+
 ### Endpoint to get a detail about a password:
+
 Method get localhost:8000/api/v1/password/\<int\>
 
 Response
+
 ```
 {
     "id": 6,
@@ -107,9 +123,11 @@ Response
 ```
 
 ### Endpoint to update a password:
+
 Method put localhost:8000/api/v1/password/\<int\>
 
 Body
+
 ```
 {
     "name": "test8",
@@ -122,10 +140,13 @@ Body
 ```
 
 ### Endpoint to delete a password:
+
 Method delete localhost:8000/api/v1/password/\<int\>
 
 ## How to execute tests:
+
 #### To see all the behaviors of this api, look at the test file in app passwords folder.
+
 1. To test the api, use:
 
 ```
