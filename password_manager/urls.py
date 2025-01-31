@@ -16,19 +16,19 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.contrib.auth.views import (
+    PasswordResetCompleteView,
+    PasswordResetConfirmView,
+    PasswordResetDoneView,
+    PasswordResetView,
+)
+from django.urls import include, path
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
+from rest_framework import permissions
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
-)
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
-from rest_framework import permissions
-from django.contrib.auth.views import (
-    PasswordResetView,
-    PasswordResetConfirmView,
-    PasswordResetCompleteView,
-    PasswordResetDoneView,
 )
 
 schema_view = get_schema_view(
@@ -61,10 +61,10 @@ urlpatterns = [
         name="schema-redoc",
     ),
     path(
-        "password_reset/", PasswordResetView.as_view(), name="password_reset"
+        "password-reset/", PasswordResetView.as_view(), name="password_reset"
     ),
     path(
-        "password_reset_done/",
+        "password-reset_done/",
         PasswordResetDoneView.as_view(),
         name="password_reset_done",
     ),
@@ -74,7 +74,7 @@ urlpatterns = [
         name="password_reset_confirm",
     ),
     path(
-        "reset_complete/",
+        "reset-complete/",
         PasswordResetCompleteView.as_view(),
         name="password_reset_complete",
     ),
