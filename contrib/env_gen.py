@@ -18,7 +18,7 @@ CONFIG_STRING = (
     """
 DEBUG=True
 SECRET_KEY=%s
-ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+ALLOWED_HOSTS=localhost,127.0.0.1
 
 #DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/NAME
 ENGINE=django.db.backends.postgresql
